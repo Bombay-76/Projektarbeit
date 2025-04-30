@@ -9,5 +9,3 @@ Das Zeiterfassungssystem wird auf allen Rechnern innerhalb des Unternehmens inst
 Am Ende eines Arbeitstages oder einer Arbeitswoche hat jeder Mitarbeiter die Möglichkeit, seine geleisteten Stunden sowie die Art der jeweiligen Tätigkeit minutengenau zu dokumentieren. Diese detaillierte Erfassung unterstützt die Verwaltung dabei, einen genauen Überblick über sämtliche Arbeitsprozesse sowie die aufgewendete Zeit pro Projekt zu erhalten. Auf diese Weise kann transparent nachvollzogen werden, wie viel Zeit einzelne Aufgaben in Anspruch genommen haben.
 Langfristig soll das System außerdem dabei helfen, die Auslastung der Mitarbeiter zu kontrollieren. Es wird sichtbar, ob die wöchentlich vereinbarten Arbeitszeiten eingehalten werden und welche Projekte gegebenenfalls mehr Ressourcen beanspruchen als ursprünglich geplant. Dadurch lassen sich Prozesse optimieren und die Planung zukünftiger Projekte effizienter gestalten.
 Das Projekt wird betreut von: Lennie Engelmann und Leonard Brauneis
-
-![image](https://github.com/user-attachments/assets/d9c8582e-a4cf-4422-b179-a195e021a6ce)
