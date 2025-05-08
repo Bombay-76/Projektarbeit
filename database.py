@@ -1,28 +1,38 @@
-import os, mariadb, sys
-from dotenv import load_dotenv, dotenv_values
+import tkinter as tk
+import mariadb
+import os
+import sys
+from dotenv import load_dotenv
 
-
-class Datenbank():
+class Datenbank:
     def __init__(self):
-        nummer = 0
-
         load_dotenv()
-
-        try:#connect
-            conn = mariadb.connect(
-                user = os.getenv("USER"),
-                password = os.getenv("PASSWORD"),
-                host = os.getenv("HOST"),
-                port = os.getenv("PORT"),
-                database = os.getenv("DATABASE")
+        try:
+            # Verbindung aufbauen
+            self.conn = mariadb.connect(
+                user=os.getenv("USER"),
+                password=os.getenv("PASSWORD"),
+                host=os.getenv("HOST"),
+                port=int(os.getenv("PORT")),
+                database=os.getenv("DATABASE")
             )
-
+            self.cur = self.conn.cursor()
+            print("Verbindung erfolgreich hergestellt.")
         except mariadb.Error as e:
-            print(f"Error connecting to MariaDB PLatform: {e}")
+            print(f"Fehler beim Verbinden zu MariaDB: {e}")
             sys.exit(1)
-        #get cursor
-        cur = conn.cursor()
-        #"SELECT artikel.Artikelname, artikel.Preis_Netto, artikel.Lagerbestand, lieferant.Lieferantenname FROM artikel INNER JOIN lieferant ON artikel.Lieferant = lieferant.ID_Lieferant;"
-        cur.execute(
-            "SELECT * FROM anrede WHERE anrede = 'divers';"
+
+    def register(self):
+        try:
+            self.cur.execute(
+            "INSERT INTO mitarbeiter (mitarbeiter_id, adresse, geburtsdatum, passwort) VALUES (?, ?, ?, ?)"
             )
+            results = self.cur.fetchall()
+            print("Ergebnisse:")
+            for row in results:
+                print(row)
+        except mariadb.Error as e:
+            print(f"Fehler beim Ausführen des SQL-Befehls: {e}")
+
+if __name__ == "__main__":
+    app = Datenbank()
