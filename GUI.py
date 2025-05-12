@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from database import Datenbank
 
 root = tk.Tk()
 root.title("YouTrack")
@@ -10,11 +11,11 @@ root.resizable(True, True)
 root.grid_rowconfigure(0, weight=1)
 root.grid_columnconfigure(0, weight=1)
 
-# Globale Variablen für Frames
+    # Globale Variablen für Frames
 login_frame = None
 register_frame = None
 
-# Fenster zentrieren
+    # Fenster zentrieren
 def center_window(window, width=1280, height=720):
     screen_width = window.winfo_screenwidth()
     screen_height = window.winfo_screenheight()
@@ -22,7 +23,7 @@ def center_window(window, width=1280, height=720):
     y = int((screen_height - height) / 2)
     window.geometry(f"{width}x{height}+{x}+{y}")
 
-# Login-Maske
+    # Login-Maske
 def login_mask():
     global login_frame, register_frame
     if register_frame:
@@ -49,7 +50,7 @@ def login_mask():
     ttk.Button(button_frame, text="Anmelden", command=lambda: print("Login")).pack(side="left", padx=(0, 5))
     ttk.Button(button_frame, text="Registrieren", command=register_mask).pack(side="left")
 
-# Registrier-Maske
+    # Registrierungs-Maske
 def register_mask():
     global login_frame, register_frame
     if login_frame:
@@ -58,7 +59,6 @@ def register_mask():
     register_frame = ttk.Frame(root, padding=30)
     register_frame.grid(row=0, column=0)
 
-    # Spaltenkonfiguration für Zentrierung
     register_frame.grid_columnconfigure(0, weight=1)
     register_frame.grid_columnconfigure(1, weight=1)
 
@@ -74,9 +74,6 @@ def register_mask():
     ttk.Label(register_frame, text="Vorname:").grid(row=1, column=0, padx=10, pady=5, sticky="e")
     ttk.Entry(register_frame, textvariable=vorname_var, width=30).grid(row=1, column=1, padx=10, pady=5, sticky="w")
 
-    ttk.Label(register_frame, text="Geburtsdatum:").grid(row=2, column=0, padx=10, pady=5, sticky="e")
-    ttk.Entry(register_frame, textvariable=geburtsdatum_var, width=30).grid(row=2, column=1, padx=10, pady=5, sticky="w")
-
     ttk.Label(register_frame, text="Adresse:").grid(row=3, column=0, padx=10, pady=5, sticky="e")
     ttk.Entry(register_frame, textvariable=adresse_var, width=30).grid(row=3, column=1, padx=10, pady=5, sticky="w")
 
@@ -84,12 +81,7 @@ def register_mask():
     ttk.Entry(register_frame, textvariable=passwort_var, show="*", width=30).grid(row=4, column=1, padx=10, pady=5, sticky="w")
 
     def speichern():
-        print("Registrierung abgeschlossen:")
-        print("Name:", name_var.get())
-        print("Vorname:", vorname_var.get())
-        print("Geburtsdatum:", geburtsdatum_var.get())
-        print("Adresse:", adresse_var.get())
-        print("Passwort:", passwort_var.get())
+        Datenbank().register()
         login_mask()  # Zurück zur Anmeldemaske
 
     # Speichern-Button zentriert unter den Eingabefeldern
