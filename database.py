@@ -33,6 +33,9 @@ class Datenbank:
                 print(row)
         except mariadb.Error as e:
             print(f"Fehler beim Ausführen des SQL-Befehls: {e}")
+    
+    def insight(self):
+        
 
 if __name__ == "__main__":
     app = Datenbank()
