@@ -25,7 +25,7 @@ class Datenbank:
     def register(self):
         try:
             self.cur.execute(
-            "INSERT INTO mitarbeiter (mitarbeiter_id, adresse, geburtsdatum, passwort) VALUES (?, ?, ?, ?)"
+            "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, Nachname, adresse, passwort) VALUES (?, ?, ?, ?, ?)"
             )
             results = self.cur.fetchall()
             print("Ergebnisse:")
