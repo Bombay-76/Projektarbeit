@@ -1,5 +1,7 @@
 import tkinter as tk, customtkinter as ctk
 
+import database
+import database as db
 
 root = tk.Tk()
 
@@ -10,7 +12,7 @@ def login_frame():
     return fg_frame
 
 def tb_ID():
-    Entry_id2 = ctk.CTkEntry(
+    entry_id = ctk.CTkEntry(
         master=root,
         placeholder_text="Mitarbeiter ID",
         placeholder_text_color="#ffffff",
@@ -24,11 +26,11 @@ def tb_ID():
         bg_color="gray85",
         fg_color="#7d7d7d",
         )
-    Entry_id2.place(relx=0.5, rely=0.4, anchor="center")
-    return Entry_id2
+    entry_id.place(relx=0.5, rely=0.4, anchor="center")
+    return entry_id
 
 def tb_PW():
-    Entry_id2 = ctk.CTkEntry(
+    entry_pw = ctk.CTkEntry(
         master=root,
         placeholder_text="Passwort",
         placeholder_text_color="#ffffff",
@@ -42,11 +44,11 @@ def tb_PW():
         bg_color="gray85",
         fg_color="#7d7d7d",
         )
-    Entry_id2.place(relx=0.5, rely=0.47, anchor="center")
-    return Entry_id2
+    entry_pw.place(relx=0.5, rely=0.47, anchor="center")
+    return entry_pw
 
 def bn_login():
-    Button_id3 = ctk.CTkButton(
+    button_login = ctk.CTkButton(
         master=root,
         text="Login",
         font=("undefined", 14),
@@ -60,12 +62,13 @@ def bn_login():
         border_color="#000000",
         bg_color="#D9D9D9",
         fg_color="gray25",
+        command = database.login()
         )
-    Button_id3.place(relx=0.45, rely=0.6, anchor="center")
-    return Button_id3
+    button_login.place(relx=0.45, rely=0.6, anchor="center")
+    return button_login
 
 def bn_registrieren():
-    Button_id3 = ctk.CTkButton(
+    button_register = ctk.CTkButton(
         master=root,
         text="Registireren",
         font=("undefined", 14),
@@ -80,5 +83,5 @@ def bn_registrieren():
         bg_color="#D9D9D9",
         fg_color="gray25",
         )
-    Button_id3.place(relx=0.54, rely=0.6, anchor="center")
-    return Button_id3
+    button_register.place(relx=0.54, rely=0.6, anchor="center")
+    return button_register

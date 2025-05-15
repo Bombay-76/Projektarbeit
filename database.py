@@ -1,9 +1,9 @@
-import tkinter as tk
 import mariadb
 import os
 import sys
 import hashlib
 from dotenv import load_dotenv
+from GUI import *
 
 class Datenbank:
     def __init__(self):
@@ -22,33 +22,37 @@ class Datenbank:
         except mariadb.Error:
             print("Da hat etwas nicht geklappt!")
 
-    def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
-        try:
-            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
-            self.cur.execute(
-                "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (%, ?, ?, ?)",
-                (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw)
-            )
-            self.conn.commit()
-            print("Erfolgreich registriert!")
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt!")
+def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
+    try:
+        hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
+        self.cur.execute(
+            "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (%, ?, ?, ?)",
+            (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw)
+        )
+        self.conn.commit()
+        print("Erfolgreich registriert!")
+    except mariadb.Error:
+        print("Da hat etwas nicht geklappt!")
     
-    def login(self, mitarbeiter_nr, passwort):
-        try:
-            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
-            self.cur.execute(
-                "SELECT * FROM mitarbeiter WHERE mitarbeiter_nr = ? AND passwort = ?",
-                (mitarbeiter_nr, hashed_pw)
-            )   
-            return self.cur.fetchone()
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt:")
+def login(self, mitarbeiter_nr, passwort):
+
+    login_data = tb_ID().get()
+
+
+    try:
+        hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
+        self.cur.execute(
+            "SELECT * FROM mitarbeiter WHERE mitarbeiter_nr = ? AND passwort = ?",
+            (login_data, hashed_pw)
+        )
+        return self.cur.fetchone()
+    except mariadb.Error:
+        print("Da hat etwas nicht geklappt:")
     
-    def insight(self):
-        try:
-            self.cur.execute("SELECT * FROM Zeiterfassung")
-            daten = self.cur.fetchall()
-            return daten
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt!")
+def insight(self):
+    try:
+        self.cur.execute("SELECT * FROM Zeiterfassung")
+        daten = self.cur.fetchall()
+        return daten
+    except mariadb.Error:
+        print("Da hat etwas nicht geklappt!")
