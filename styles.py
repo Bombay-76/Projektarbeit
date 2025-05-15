@@ -7,6 +7,7 @@ def login_frame():
     fg_frame = ctk.CTkFrame(root, fg_color="gray85", corner_radius=15)
     fg_frame.place(relx=0.3, rely=0.25, relwidth=0.4, relheight=0.45)
     ctk.CTkLabel(fg_frame, text="Anmelden", font= ("Arial", 20)).pack(pady=10)
+    return fg_frame
 
 def tb_ID():
     Entry_id2 = ctk.CTkEntry(
@@ -24,6 +25,7 @@ def tb_ID():
         fg_color="#7d7d7d",
         )
     Entry_id2.place(relx=0.5, rely=0.4, anchor="center")
+    return Entry_id2
 
 def tb_PW():
     Entry_id2 = ctk.CTkEntry(
@@ -41,6 +43,7 @@ def tb_PW():
         fg_color="#7d7d7d",
         )
     Entry_id2.place(relx=0.5, rely=0.47, anchor="center")
+    return Entry_id2
 
 def bn_login():
     Button_id3 = ctk.CTkButton(
@@ -59,6 +62,7 @@ def bn_login():
         fg_color="gray25",
         )
     Button_id3.place(relx=0.45, rely=0.6, anchor="center")
+    return Button_id3
 
 def bn_registrieren():
     Button_id3 = ctk.CTkButton(
@@ -77,3 +81,4 @@ def bn_registrieren():
         fg_color="gray25",
         )
     Button_id3.place(relx=0.54, rely=0.6, anchor="center")
+    return Button_id3
