@@ -79,6 +79,7 @@ def bn_registrieren():
         border_color="#000000",
         bg_color="#D9D9D9",
         fg_color="gray25",
+        command =
         )
     button_register.place(relx=0.54, rely=0.6, anchor="center")
     return button_register

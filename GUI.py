@@ -4,13 +4,15 @@ class GUI:
     def __init__(self, root):
         self.root = root
         self.root.title("YouTrack")
-
         self.root.resizable(True, True)
-
         self.window_width = 1280
         self.window_height = 720
-
         self.center_window()
+        ctk.set_appearance_mode("System")
+
+        self.login_frame = tk.Frame(self.root)
+        self.register_frame = tk.Frame(self.root)
+
         self.login_mask()
 
 
@@ -33,6 +35,9 @@ class GUI:
         bn_login()
         bn_registrieren()
 
+
+    def register_mask(self):
+        pass
 
 if __name__ == "__main__":
     app = GUI(root)
