@@ -1,8 +1,5 @@
 import tkinter as tk, customtkinter as ctk
 
-import database
-import database as db
-
 root = tk.Tk()
 
 def login_frame():
@@ -62,7 +59,7 @@ def bn_login():
         border_color="#000000",
         bg_color="#D9D9D9",
         fg_color="gray25",
-        command = database.login()
+        #command =
         )
     button_login.place(relx=0.45, rely=0.6, anchor="center")
     return button_login
