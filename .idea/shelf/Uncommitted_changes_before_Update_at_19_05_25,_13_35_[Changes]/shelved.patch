@@ -1,0 +1,16 @@
+Index: .env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.env b/.env
+new file mode 100644
+--- /dev/null	(date 1747297003903)
++++ b/.env	(date 1747297003903)
+@@ -0,0 +1,5 @@
++USER = "team08"
++PASSWORD = "8US9V"
++HOST = "10.80.0.206"
++PORT = "3306"
++DATABASE = "team08"
+\ No newline at end of file

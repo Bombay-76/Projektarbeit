@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc291bae-5b99-4473-9fe3-efabc16c9b9c" name="Changes" comment="Test" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;im-Leonard&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Bombay-76/Projektarbeit.git&quot;,
+    &quot;accountId&quot;: &quot;bafc7a66-2a27-4789-9597-8350f9d3ff87&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2wR9BljH7GVKBpbNN7XWNiK58Eu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.GUI.executor": "Run",
+    "Python.login.executor": "Run",
+    "Python.styles.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/leonardbrauneis/Desktop/Projektarbeit Stundenrechner/Stundenrechner",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "repository"
+    ]
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PY-251.25410.159" />
+        <option value="bundled-python-sdk-e0ed3721d81e-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.159" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc291bae-5b99-4473-9fe3-efabc16c9b9c" name="Changes" comment="" />
+      <created>1745993386977</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745993386977</updated>
+      <workItem from="1745993388035" duration="678000" />
+      <workItem from="1746445176162" duration="7000" />
+      <workItem from="1746445194326" duration="3000" />
+      <workItem from="1746445218557" duration="4296000" />
+      <workItem from="1746601244933" duration="3096000" />
+      <workItem from="1746690748017" duration="8110000" />
+      <workItem from="1747049985358" duration="5976000" />
+      <workItem from="1747204706412" duration="6657000" />
+      <workItem from="1747295252482" duration="8337000" />
+      <workItem from="1747654510531" duration="284000" />
+      <workItem from="1747654798846" duration="76000" />
+      <workItem from="1747654895789" duration="112000" />
+      <workItem from="1747655040580" duration="593000" />
+      <workItem from="1747655777682" duration="226000" />
+      <workItem from="1747656006721" duration="303000" />
+    </task>
+    <task id="LOCAL-00001" summary="test.py added">
+      <option name="closed" value="true" />
+      <created>1746601317900</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746601317900</updated>
+    </task>
+    <task id="LOCAL-00002" summary="daten verschlüsselt">
+      <option name="closed" value="true" />
+      <created>1746694801580</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1746694801580</updated>
+    </task>
+    <task id="LOCAL-00003" summary="vorläufige anmeldemaske">
+      <option name="closed" value="true" />
+      <created>1747050042903</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747050042903</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Anmeldeung und registirerung ohne funktion hinzugefügt">
+      <option name="closed" value="true" />
+      <created>1747051924014</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747051924014</updated>
+    </task>
+    <task id="LOCAL-00005" summary="testfunktion für datenbankanbindung">
+      <option name="closed" value="true" />
+      <created>1747053282064</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1747053282064</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Neue GUI Version">
+      <option name="closed" value="true" />
+      <created>1747296998514</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747296998514</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Bugfixes">
+      <option name="closed" value="true" />
+      <created>1747299915555</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1747299915555</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Bugfixes">
+      <option name="closed" value="true" />
+      <created>1747305289197</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1747305289197</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Bugfixes">
+      <option name="closed" value="true" />
+      <created>1747654583312</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1747654583312</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Bugfixes">
+      <option name="closed" value="true" />
+      <created>1747654596243</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1747654596243</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Neue Bugs gefixt">
+      <option name="closed" value="true" />
+      <created>1747654637289</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1747654637289</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Neue Bugs gefixt">
+      <option name="closed" value="true" />
+      <created>1747654864674</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1747654864674</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Test">
+      <option name="closed" value="true" />
+      <created>1747655250217</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1747655250217</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test.py added" />
+    <MESSAGE value="daten verschlüsselt" />
+    <MESSAGE value="vorläufige anmeldemaske" />
+    <MESSAGE value="Anmeldeung und registirerung ohne funktion hinzugefügt" />
+    <MESSAGE value="testfunktion für datenbankanbindung" />
+    <MESSAGE value="Neue GUI Version" />
+    <MESSAGE value="Bugfixes" />
+    <MESSAGE value="Neue Bugs gefixt" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Stundenrechner$login.coverage" NAME="login Coverage Results" MODIFIED="1746694681730" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stundenrechner$test.coverage" NAME="test Coverage Results" MODIFIED="1747295816498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stundenrechner$styles.coverage" NAME="styles Coverage Results" MODIFIED="1747297461365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Stundenrechner$GUI.coverage" NAME="GUI Coverage Results" MODIFIED="1747655149236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
