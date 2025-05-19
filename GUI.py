@@ -36,5 +36,6 @@ class GUI:
 
 
 if __name__ == "__main__":
+    "fhjcghkj"
     app = GUI(root)
     root.mainloop()
