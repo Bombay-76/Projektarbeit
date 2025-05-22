@@ -14,6 +14,7 @@ class RegisterFrame(tk.Frame):
         self.bn_confirm_register()
 
 
+        # Syles für Registrierungsfenster
     def register_bg(self):
         fg_frame = ctk.CTkFrame(self.parent, fg_color="gray85", corner_radius=15)
         fg_frame.place(relx=0.3, rely=0.25, relwidth=0.4, relheight=0.5)
