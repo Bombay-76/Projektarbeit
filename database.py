@@ -22,61 +22,48 @@ class Datenbank:
         except mariadb.Error:
             print("Da hat etwas nicht geklappt!")
 
-def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
+    def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
+        try:
+            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
+            self.cur.execute(
+                "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (?, ?, ?, ?, ?)",
+                (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw)
+            )
+            self.conn.commit()
+            print("Erfolgreich registriert!")
+        except mariadb.Error:
+            print("Da hat etwas nicht geklappt!")
+    
+    def login(self, mitarbeiter_nr, passwort):
+        try:
+            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
+            self.cur.execute(
+                "SELECT * FROM mitarbeiter WHERE mitarbeiter_nr = ? AND passwort = ?",#FürhtSQLCodeAus
+                (mitarbeiter_nr, hashed_pw)
+            )
+            return self.cur.fetchone()
+        except mariadb.Error:
+            print("Da hat etwas nicht geklappt:")
+    
+    def insight(self):
+        try:
+            self.cur.execute("SELECT * FROM Zeiterfassung")#FürhtSQLCodeAus
+            daten = self.cur.fetchall()
+            return daten
+        except mariadb.Error:
+            print("Da hat etwas nicht geklappt!")
 
-    vorname = tb_vorname().get()
-    nachname = tb_nachname().get()#ValueAusDenTextBoxenHolen
-    adresse = tb_adresse().get()
-
-    try:
-        hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
-        self.cur.execute(
-            "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (?, ?, ?, ?, ?)",
-            (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw)
+    def add(self, projekt_id, projektname, kunden_nr):#FunktionZumAnlegenNeuerProjekte
+        try:
+            self.cur.execute(#Ausführenvonsqlcode
+            "INSERT INTO Projekt (projekt_id, projektname, Kunden_nr) VALUES (?, ?, ?)"
         )
-        self.conn.commit()
-        print("Erfolgreich registriert!")
-    except mariadb.Error:
-        print("Da hat etwas nicht geklappt!")
-    
-def login(self, mitarbeiter_nr, passwort):
+        except mariadb.Error:
+            print("Da hat etwas nicht geklappt")
 
-    mitarbeiter_nr = tb_ID().get()
-    passwort = tb_passwort().get()
-
-    try:
-        hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
-        self.cur.execute(
-            "SELECT * FROM mitarbeiter WHERE mitarbeiter_nr = ? AND passwort = ?",#FürhtSQLCodeAus
-            (mitarbeiter_nr, hashed_pw)
-        )
-        return self.cur.fetchone()
-    except mariadb.Error:
-        print("Da hat etwas nicht geklappt:")
-    
-def insight(self):
-    try:
-        self.cur.execute("SELECT * FROM Zeiterfassung")#FürhtSQLCodeAus
-        daten = self.cur.fetchall()
-        return daten
-    except mariadb.Error:
-        print("Da hat etwas nicht geklappt!")
-
-def add(self, projekt_id, projektname, kunden_nr):#FunktionZumAnlegenNeuerProjekte
-
-    projekt_id = tb_projekt_id().get()#ValuesVonTextBoxenHolen
-    projektname = tb_projektname().get()
-    kunden_nr = tb_projektname().get()
-
-    try:
-        self.cur.execute(#Ausführenvonsqlcode
-        "INSERT INTO Projekt (projekt_id, projektname, Kunden_nr) VALUES (?, ?, ?)"
-    )
-    except mariadb.Error:
-        print("Da hat etwas nicht geklappt")
-
-def delete():
+    def delete():
+        None
     
 
-def close(self):#FunktionZumSchließenDerDatenbankConnection
-    self.conn.close()
+    def close(self):#FunktionZumSchließenDerDatenbankConnection
+        self.conn.close()
