@@ -1,5 +1,5 @@
 import customtkinter as ctk, tkinter as tk
-
+from customtkinter import CTkFrame
 
 
 class RegisterFrame(tk.Frame):
@@ -130,11 +130,10 @@ class RegisterFrame(tk.Frame):
             border_color = "#000000",
             bg_color = "#D9D9D9",
             fg_color = "gray25",
-            command = lambda:  self.container.show_frame("login")
+            command = lambda: self.container.show_frame("login")
             )
         button_conf_register.place(relx=0.5, rely=0.7, anchor="center")
         return button_conf_register
 
-'''
-
-'''
+def destroy_register_win(self):
+    self.container.show_frame("login")
