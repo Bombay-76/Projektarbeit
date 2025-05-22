@@ -1,4 +1,4 @@
-from styles import *
+from loginpage import *
 
 class GUI(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -11,7 +11,6 @@ class GUI(tk.Tk):
         self.center_window()
         ctk.set_appearance_mode("System")
 
-        # creating a frame and assigning it to container
         self.frame = tk.Frame(self)
         self.frame.pack(expand=True)
 
