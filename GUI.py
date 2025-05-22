@@ -11,10 +11,14 @@ class GUI(tk.Tk):
         self.center_window()
         ctk.set_appearance_mode("System")
 
-        self.frame = tk.Frame(self)
+        self.frame = tk.Frame(self)#
         self.frame.pack(expand=True)
 
-        self.show_frame(LoginFrame)
+        self.fra = LoginFrame()#ObjektLoginFrame
+
+        self.re2 = self.fra.employee_id.get()#SpeichernvonTExtBoxID
+        self.re = self.fra.employee_pw.get()#speichernVonTextBoxPasswort
+        self.show_frame(self.fra)
 
     def show_frame(self, F):
         print(F)
