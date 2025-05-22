@@ -5,4 +5,6 @@
     Bombay-76
     Leonard
 """
+from GUI import *
 
+gui = GUI()

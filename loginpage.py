@@ -1,5 +1,6 @@
 import tkinter as tk, customtkinter as ctk
 from registerpage import RegisterFrame
+from database import Datenbank
 
     # Klasse für das Design des Loginfensters
 class LoginFrame(tk.Frame):
@@ -8,7 +9,7 @@ class LoginFrame(tk.Frame):
         self.parent = parent
         self.container = container
         self.login_bg()
-        self.tb_ID()
+        self.mitarbeiter_id = self.tb_ID()
         self.tb_PW()
         self.bn_login()
         self.bn_registrieren()
@@ -42,6 +43,7 @@ class LoginFrame(tk.Frame):
             master= self.parent,
             placeholder_text="Passwort",
             placeholder_text_color="#ffffff",
+            show="*",
             font=("Arial", 14),
             text_color="#ffffff",
             height=30,
@@ -70,7 +72,7 @@ class LoginFrame(tk.Frame):
             border_color="#000000",
             bg_color="#D9D9D9",
             fg_color="gray25",
-            #command =
+            #command = Datenbank.login()
             )
         button_login.place(relx=0.45, rely=0.6, anchor="center")
         return button_login
@@ -90,7 +92,7 @@ class LoginFrame(tk.Frame):
             border_color="#000000",
             bg_color="#D9D9D9",
             fg_color="gray25",
-            command =  lambda:  self.container.show_frame(RegisterFrame)
+            #command =  lambda:  self.container.show_frame(RegisterFrame)
             )
         button_register.place(relx=0.54, rely=0.6, anchor="center")
         return button_register
