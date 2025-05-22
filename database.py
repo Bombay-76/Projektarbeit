@@ -61,8 +61,8 @@ class Datenbank:
         except mariadb.Error:
             print("Da hat etwas nicht geklappt")
 
-    def delete():
-        None
+    def delete(self):
+        pass
     
 
     def close(self):#FunktionZumSchließenDerDatenbankConnection
