@@ -6,3 +6,10 @@
     Leonard
 """
 
+import GUI
+import database
+import styles
+
+data_obj = database.Datenbank()
+
+mitarbeiter_nr, hashed_pw = data_obj.login()
