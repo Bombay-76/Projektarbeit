@@ -135,6 +135,6 @@ class RegisterFrame(tk.Frame):
         button_conf_register.place(relx=0.5, rely=0.7, anchor="center")
         return button_conf_register
 
+'''
 
-    def close(self):
-        pass
+'''
