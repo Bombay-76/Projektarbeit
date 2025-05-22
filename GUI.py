@@ -30,6 +30,7 @@ class GUI(tk.Tk):
 
         self.geometry(f"{self.window_width}x{self.window_height}+{x}+{y}")
 
+#dfgdgdfg
 
 if __name__ == "__main__":
     app = GUI()

@@ -97,5 +97,5 @@ class LoginFrame(tk.Frame):
         button_register.place(relx=0.54, rely=0.6, anchor="center")
         return button_register
 
-
+#gdgd
 
