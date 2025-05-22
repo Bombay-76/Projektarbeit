@@ -14,11 +14,15 @@ class GUI(tk.Tk):
         self.frame = tk.Frame(self)
         self.frame.pack(expand=True)
 
-        self.show_frame(LoginFrame)
+        self.show_frame("login")
 
-    def show_frame(self, F):
-        print(F)
-        self.frame = F(self, self)
+    def show_frame(self, frame_name):
+        if (frame_name == "login"):
+            self.frame = LoginFrame(self)
+        elif (frame_name == "register"):
+            self.frame = RegisterFrame(self)
+        else:
+            print("Invalid frame name")
 
     def center_window(self):
 
