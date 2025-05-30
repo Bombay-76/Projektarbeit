@@ -74,7 +74,7 @@ class LoginFrame(tk.Frame):
             border_color = "#000000",
             bg_color = "#D9D9D9",
             fg_color = "gray25",
-            command = obj_db.login()
+            #command = obj_db.login()
             )
         button_login.place(relx=0.45, rely=0.6, anchor="center")
         return button_login

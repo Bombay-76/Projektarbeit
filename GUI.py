@@ -1,4 +1,4 @@
-from loginpage import *
+from loginpage import *#gui
 
 class GUI(tk.Tk):
     def __init__(self, *args, **kwargs):
