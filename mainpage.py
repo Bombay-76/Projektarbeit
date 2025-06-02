@@ -1,3 +1,4 @@
+#Mainpage Datei 4
 import customtkinter as ctk
 import tkinter as tk
 import database
@@ -6,7 +7,7 @@ obj_db = database.Datenbank()
 
 class MainFrame(tk.Frame):
     def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
+        super().__init__(parent)
         self.parent = parent
         self.container = parent
         self.bg_main()
@@ -73,7 +74,7 @@ class MainFrame(tk.Frame):
         btn = ctk.CTkButton(
             master=self.parent,
             text="Projekt hinzufügen",
-            command=self.add_project,
+            command=self.add,
             font=("Arial", 14),
             width=150
         )
@@ -83,13 +84,13 @@ class MainFrame(tk.Frame):
         btn = ctk.CTkButton(
             master=self.parent,
             text="Zeit erfassen",
-            command=self.log_time,
+            command=self.arbeitszeit,
             font=("Arial", 14),
             width=150
         )
         btn.place(relx=0.6, rely=0.7, anchor="center")
 
-    def add_project(self):
+    def add(self):
         projekt_id = self.entry_project_id.get()
         projektname = self.entry_project_name.get()
         kunden_nr = self.entry_customer_nr.get()
@@ -97,14 +98,11 @@ class MainFrame(tk.Frame):
             obj_db.add(projekt_id, projektname, kunden_nr)
             print("Projekt hinzugefügt")
 
-    def log_time(self):
+    def arbeitszeit(self):
         try:
             projekt_id, stunden = self.entry_work_time.get().split(",")
-            self.parent.db.cur.execute(
-                "INSERT INTO Zeiterfassung (projekt_id, stunden) VALUES (?, ?)",
-                (projekt_id.strip(), float(stunden.strip()))
-            )
-            self.parent.db.conn.commit()
+            obj_db.arbeitszeit(projekt_id.strip(), float(stunden.strip()))
             print("Zeit erfasst")
-        except Exception as e:
-            print(f"Fehler bei der Zeiterfassung: {e}")
+        except:
+            print(f"Da hat etwas nicht geklappt")
+

@@ -1,3 +1,4 @@
+#GUI Datei 6
 from loginpage import *
 import database
 from mainpage import MainFrame
@@ -18,6 +19,9 @@ class GUI(tk.Tk):
         self.show_frame("login")
 
     def show_frame(self, frame_name):
+        if self.frame is not None:
+            self.frame.destroy()
+
         if frame_name == "login":
             self.frame = LoginFrame(self)
         elif frame_name == "register":
@@ -26,7 +30,9 @@ class GUI(tk.Tk):
             self.frame = MainFrame(self)
         else:
             print("ungültig")
+
         self.frame.pack(expand=True)
+
 
     def center_window(self):
 

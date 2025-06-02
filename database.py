@@ -1,3 +1,4 @@
+#datenbank datei 1
 import mariadb
 import os
 import sys
@@ -9,7 +10,7 @@ class Datenbank:
     def __init__(self):
         load_dotenv()#schütztdenzugangZurDatenbank
         try:
-            #DatenbankConnection    #
+            #DatenbankConnection
             self.conn = mariadb.connect(
                 user=os.getenv("USER"),
                 password=os.getenv("PASSWORD"),
@@ -43,7 +44,7 @@ class Datenbank:
             )
             return self.cur.fetchone()
         except mariadb.Error:
-            print("Da hat etwas nicht geklappt:")
+            print("Da hat etwas nicht geklappt!")
     
     def insight(self):
         try:
@@ -53,17 +54,27 @@ class Datenbank:
         except mariadb.Error:
             print("Da hat etwas nicht geklappt!")
 
-    def add(self, projekt_id, projektname, kunden_nr):#FunktionZumAnlegenNeuerProjekte
+    def add(self, projekt_id, projektname, kunden_nr):
         try:
-            self.cur.execute(#Ausführenvonsqlcode
-            "INSERT INTO Projekt (projekt_id, projektname, Kunden_nr) VALUES (?, ?, ?)"
-        )
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt")
+            sql = "INSERT INTO Projekt (projekt_id, projektname, kunden_nr) VALUES (%s, %s, %s)"
+            self.cur.execute(sql, (projekt_id, projektname, kunden_nr))
+            self.conn.commit()
+            print("Projekt erfolgreich hinzugefügt.")
+        except:
+            print(f"Da hat etwas nicht geklappt")
+
+    def arbeitszeit(self, projekt_id, stunden):
+        try:
+            sql = "INSERT INTO Zeiterfassung (projekt_id, stunden) VALUES (%s, %s)"
+            self.cur.execute(sql, (projekt_id, stunden))
+            self.conn.commit()
+            print("Arbeitszeit erfasst.")
+        except:
+            print(f"Da hat etwas nicht geklappt!")
 
     def delete(self):
         pass
     
-
+    
     def close(self):#FunktionZumSchließenDerDatenbankConnection
         self.conn.close()

@@ -1,10 +1,11 @@
+#loginpage datei 2
 import tkinter as tk, customtkinter as ctk
 from registerpage import RegisterFrame
 import database
 
 obj_db = database.Datenbank()
 
-    # Klasse für das Design des Loginfensters
+    # Klasse für das Design des Loginfensters 
 class LoginFrame(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
@@ -74,7 +75,7 @@ class LoginFrame(tk.Frame):
             border_color = "#000000",
             bg_color = "#D9D9D9",
             fg_color = "gray25",
-            #command = obj_db.login()
+            command = self.do_login
             )
         button_login.place(relx=0.45, rely=0.6, anchor="center")
         return button_login
@@ -98,4 +99,12 @@ class LoginFrame(tk.Frame):
             )
         button_register.place(relx=0.54, rely=0.6, anchor="center")
         return button_register
+    
+    def do_login(self):
+        mitarbeiter_nr = self.employee_id.get()
+        passwort = self.employee_pw.get()
+        result = obj_db.login(mitarbeiter_nr, passwort)
+        if result:
+            print("Login erfolgreich!")
+            self.container.show_frame("main")
 
