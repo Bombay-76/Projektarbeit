@@ -5,6 +5,8 @@
     Bombay-76
     Leonard
 """
-from GUI import *
+from GUI import GUI
 
-gui = GUI()
+if __name__ == "__main__":
+    app = GUI()
+    app.mainloop()

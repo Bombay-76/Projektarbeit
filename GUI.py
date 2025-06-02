@@ -1,5 +1,6 @@
-from loginpage import *#gui
-
+from loginpage import *
+import database
+from mainpage import MainFrame
 class GUI(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -17,12 +18,15 @@ class GUI(tk.Tk):
         self.show_frame("login")
 
     def show_frame(self, frame_name):
-        if (frame_name == "login"):
+        if frame_name == "login":
             self.frame = LoginFrame(self)
-        elif (frame_name == "register"):
+        elif frame_name == "register":
             self.frame = RegisterFrame(self)
+        elif frame_name == "main":
+            self.frame = MainFrame(self)
         else:
-            print("Invalid frame name")
+            print("ungültig")
+        self.frame.pack(expand=True)
 
     def center_window(self):
 
@@ -33,6 +37,14 @@ class GUI(tk.Tk):
         y = int((screen_height - self.window_height) / 2)
 
         self.geometry(f"{self.window_width}x{self.window_height}+{x}+{y}")
+
+    def do_login(self):
+        mitarbeiter_nr = self.employee_id.get()
+        passwort = self.employee_pw.get()
+        result = obj_db.login(mitarbeiter_nr, passwort)
+        if result:
+            print("Login erfolgreich!")
+            self.container.show_frame("main")
 
 
 if __name__ == "__main__":
