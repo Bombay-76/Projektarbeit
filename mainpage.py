@@ -1,4 +1,3 @@
-#Mainpage Datei 4
 import customtkinter as ctk
 import tkinter as tk
 import database

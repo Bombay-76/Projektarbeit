@@ -1,4 +1,3 @@
-#datenbank datei 1
 import os
 import mariadb
 import sys
@@ -24,15 +23,15 @@ class Datenbank:
         except mariadb.Error:
             print("Da hat etwas nicht geklappt!")
 
-    def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
+    def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):#FunktionZurÜbergabeDerEingegebenenValues
         try:
-            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
+            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()#HashedDasEingegebenePasswort
             self.cur.execute(
                 "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (?, ?, ?, ?, ?)",
                 (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw)
             )
             self.conn.commit()
-            print("Erfolgreich registriert!")
+            print("Mitarbeiter registriert!")
         except mariadb.Error:
             print("Da hat etwas nicht geklappt!")
     
@@ -49,7 +48,7 @@ class Datenbank:
     
     def insight(self):
         try:
-            self.cur.execute("SELECT * FROM Zeiterfassung")#FürhtSQLCodeAus
+            self.cur.execute("SELECT * FROM Zeiterfassung")
             daten = self.cur.fetchall()
             return daten
         except mariadb.Error:

@@ -1,8 +1,7 @@
-#GUI Datei 6
 from loginpage import *
 import database
 from mainpage import MainFrame
-class GUI(tk.Tk):
+class GUI(tk.Tk):#KlasseFürGUI
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 

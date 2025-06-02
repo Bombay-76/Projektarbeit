@@ -1,4 +1,3 @@
-#Mainpage Datei 5
 """
     20250428
     Projektarbeit 2. Halbjahr
