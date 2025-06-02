@@ -1,9 +1,10 @@
 #datenbank datei 1
-import mariadb
 import os
+import mariadb
 import sys
 import hashlib
 from dotenv import load_dotenv
+import mysql.connector
 from GUI import *
 
 class Datenbank:
@@ -11,13 +12,13 @@ class Datenbank:
         load_dotenv()#schütztdenzugangZurDatenbank
         try:
             #DatenbankConnection
-            self.conn = mariadb.connect(
-                user=os.getenv("USER"),
-                password=os.getenv("PASSWORD"),
-                host=os.getenv("HOST"),
-                port=int(os.getenv("PORT")),
-                database=os.getenv("DATABASE")
-            )
+            self.conn = mysql.connector.connect(
+            host=os.getenv("HOST"),
+            user=os.getenv("USER"),
+            password=os.getenv("PASSWORD"),
+            database=os.getenv("DATABASE"),
+            port=int(os.getenv("PORT"))
+        )
             self.cur = self.conn.cursor()
             print("Verbindung hergestellt!")
         except mariadb.Error:
