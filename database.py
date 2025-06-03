@@ -23,28 +23,29 @@ class Datenbank:
         except mariadb.Error:
             print("Da hat etwas nicht geklappt!")
 
-    def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):#FunktionZurÜbergabeDerEingegebenenValues
+    def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
         try:
-            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()#HashedDasEingegebenePasswort
-            self.cur.execute(
-                "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (?, ?, ?, ?, ?)",
-                (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw)
-            )
+            hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
+            sql = "INSERT INTO mitarbeiter (mitarbeiter_nr, vorname, nachname, adresse, passwort) VALUES (%s, %s, %s, %s, %s)"
+            self.cur.execute(sql, (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw))
             self.conn.commit()
-            print("Mitarbeiter registriert!")
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt!")
+            print("Erfolgreich registriert!")
+        except Exception as e:
+            print(f"Fehler bei Registrierung: {e}")
+
+
     
     def login(self, mitarbeiter_nr, passwort):
         try:
             hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
             self.cur.execute(
-                "SELECT * FROM mitarbeiter WHERE mitarbeiter_nr = ? AND passwort = ?",#FürhtSQLCodeAus
+                "SELECT * FROM mitarbeiter WHERE mitarbeiter_nr = %s AND passwort = %s",
                 (mitarbeiter_nr, hashed_pw)
             )
             return self.cur.fetchone()
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt!")
+        except Exception as e:
+            print(f"Login-Fehler: {e}")
+
     
     def insight(self):
         try:

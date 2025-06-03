@@ -133,10 +133,11 @@ class RegisterFrame(tk.Frame):
             border_color="#000000",
             bg_color="#D9D9D9",
             fg_color="gray25",
-            command=self.register_user
+            command=self.register_user  # ✅ ganz wichtig: OHNE Klammern!
         )
         button_conf_register.place(relx=0.5, rely=0.7, anchor="center")
         return button_conf_register
+
 
 # Registrierung in Datenbank durchführen
     def register_user(self):
@@ -146,8 +147,10 @@ class RegisterFrame(tk.Frame):
         passwort = self.entry_password.get()
 
         if vorname and nachname and adresse and passwort:
-            obj_db.register(vorname, nachname, adresse, passwort)
+            mitarbeiter_nr = vorname[:2] + nachname[:2] + "01"
+            obj_db.register(mitarbeiter_nr, vorname, nachname, adresse, passwort)
             print("Registrierung erfolgreich")
             self.container.show_frame("login")
         else:
             print("Bitte alle Felder ausfüllen")
+
