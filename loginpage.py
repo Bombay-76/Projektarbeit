@@ -1,11 +1,11 @@
-#ImportAllerNötigen
+#loginpage datei 2
 import tkinter as tk, customtkinter as ctk
 from registerpage import RegisterFrame
 import database
 
 obj_db = database.Datenbank()
 
-    #KlasseFürDasLogInFenster
+    #KlasseFürDasDesignDesLoginfensters 
 class LoginFrame(tk.Frame):
     def __init__(self, parent):
         tk.Frame.__init__(self, parent)
@@ -23,7 +23,7 @@ class LoginFrame(tk.Frame):
         ctk.CTkLabel(fg_frame, text= "Anmelden", font = ("Arial", 20)).pack(pady=10)
         return fg_frame
 
-    def tb_ID(self):#TextBoxFürMitarbeiterID
+    def tb_ID(self):
         entry_id = ctk.CTkEntry(
             master = self.parent,
             placeholder_text = "Mitarbeiter ID",
@@ -41,7 +41,7 @@ class LoginFrame(tk.Frame):
         entry_id.place(relx=0.5, rely=0.4, anchor="center")
         return entry_id
 
-    def tb_PW(self):#TextboxFürPasswort
+    def tb_PW(self):
         entry_pw = ctk.CTkEntry(
             master = self.parent,
             placeholder_text = "Passwort",
@@ -60,7 +60,7 @@ class LoginFrame(tk.Frame):
         entry_pw.place(relx=0.5, rely=0.47, anchor="center")
         return entry_pw
 
-    def bn_login(self):#LoginButton
+    def bn_login(self):
         button_login = ctk.CTkButton(
             master = self.parent,
             text = "Login",
@@ -75,12 +75,12 @@ class LoginFrame(tk.Frame):
             border_color = "#000000",
             bg_color = "#D9D9D9",
             fg_color = "gray25",
-            command = self.do_login#FührtIndirektDieLoginFunktionAus
+            command = self.do_login
             )
         button_login.place(relx=0.45, rely=0.6, anchor="center")
         return button_login
 
-    def bn_registrieren(self):#FührtIndirektDieRegisterFunktionAus
+    def bn_registrieren(self):
         button_register = ctk.CTkButton(
             master=self.parent,
             text="Registireren",
@@ -100,8 +100,8 @@ class LoginFrame(tk.Frame):
         button_register.place(relx=0.54, rely=0.6, anchor="center")
         return button_register
     
-    def do_login(self):#"Indirekte" LoginFunktion
-        mitarbeiter_nr = self.employee_id.get()#ValueWirdAusDenTextboxenGenommen
+    def do_login(self):
+        mitarbeiter_nr = self.employee_id.get()
         passwort = self.employee_pw.get()
         result = obj_db.login(mitarbeiter_nr, passwort)
         if result:
