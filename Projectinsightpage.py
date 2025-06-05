@@ -1,4 +1,3 @@
-#projectinsight.py datei 5
 import customtkinter as ctk
 import tkinter as tk
 import database
@@ -55,6 +54,8 @@ class Project_insight_Frame(tk.Frame):
             text="Alle Projekte",
             command=self.show_all,
             font=("Arial", 14),
+            bg_color="#D9D9D9",
+            fg_color="gray25",            
             width=120
         )
         btn.place(relx=0.58, rely=0.35, anchor="center")
@@ -62,12 +63,14 @@ class Project_insight_Frame(tk.Frame):
     def bn_back(self):
         btn = ctk.CTkButton(
             master=self.parent,
-            text="Zurück",
+            text="Zurück",#IchBekommeDenButtonAufDerMainPageNichtWeg:(
             command=lambda: self.container.show_frame("main"),
             font=("Arial", 14),
+            bg_color="#D9D9D9",
+            fg_color="gray25",            
             width=120
         )
-        btn.place(relx=0.5, rely=0.85, anchor="center")
+        btn.place(relx=0.5, rely=0.8, anchor="center")
 
     def result_box(self):
         box = tk.Text(
@@ -93,3 +96,4 @@ class Project_insight_Frame(tk.Frame):
         results = self.db.filter(kundennr)
         for row in results:
             self.lb_output.insert(tk.END, f"{row}\n")
+

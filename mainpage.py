@@ -1,4 +1,3 @@
-#mainpage.py datei 3
 import customtkinter as ctk
 import tkinter as tk
 import database
@@ -30,9 +29,11 @@ class MainFrame(tk.Frame):
             text="Alle Projekte",
             command=lambda: self.container.show_frame("project"),
             font=("Arial", 14),
+            bg_color="#D9D9D9",
+            fg_color="gray25",            
             width=150
         )
-        btn.place(relx=0.5, rely=0.8, anchor="center")
+        btn.place(relx=0.5, rely=0.75, anchor="center")
 
     def lb_hint(self):
         label = ctk.CTkLabel(
@@ -74,7 +75,7 @@ class MainFrame(tk.Frame):
     def tb_work_time(self):
         self.entry_work_time = ctk.CTkEntry(
             master=self.parent,
-            placeholder_text="Gearbeitete Stunden (Projekt-ID, Stunden)",
+            placeholder_text="Gearbeitete Stunden",
             font=("Arial", 14),
             width=250
         )
@@ -86,9 +87,11 @@ class MainFrame(tk.Frame):
             text="Projekt hinzufügen",
             command=self.add,
             font=("Arial", 14),
+            bg_color="#D9D9D9",
+            fg_color="gray25",            
             width=150
         )
-        btn.place(relx=0.4, rely=0.7, anchor="center")
+        btn.place(relx=0.4, rely=0.67, anchor="center")
 
     def bn_log_time(self):
         btn = ctk.CTkButton(
@@ -96,9 +99,11 @@ class MainFrame(tk.Frame):
             text="Zeit erfassen",
             command=self.arbeitszeit,
             font=("Arial", 14),
+            bg_color="#D9D9D9",
+            fg_color="gray25",            
             width=150
         )
-        btn.place(relx=0.6, rely=0.7, anchor="center")
+        btn.place(relx=0.6, rely=0.67, anchor="center")
 
     def add(self):
         projekt_id = self.entry_project_id.get()

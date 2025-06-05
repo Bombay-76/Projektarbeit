@@ -1,4 +1,3 @@
-#database.py datei 1
 import os
 import mariadb
 import sys
@@ -50,8 +49,8 @@ class Datenbank:
             self.cur.execute(sql, (projekt_id, projektname, kunden_nr))
             self.conn.commit()
             print("Projekt erfolgreich hinzugefügt.")
-        except Exception as e:
-            print(f"Fehler beim Hinzufügen des Projekts: {e}")
+        except Exception:
+            print(f"Fehler beim Hinzufügen des Projekts")
 
 
     def arbeitszeit(self, projekt_id, stunden):

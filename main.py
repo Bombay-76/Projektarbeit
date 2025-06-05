@@ -1,4 +1,3 @@
-#main.py datei 7 
 """
     20250428
     Projektarbeit 2. Halbjahr

@@ -1,4 +1,3 @@
-#GUI.py datei 6 
 import database
 from loginpage import *
 from mainpage import MainFrame

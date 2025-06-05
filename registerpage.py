@@ -1,4 +1,3 @@
-#registerpage.py datei 4
 import customtkinter as ctk
 import tkinter as tk
 from customtkinter import CTkFrame
@@ -11,22 +10,20 @@ class RegisterFrame(tk.Frame):
         self.parent = parent
         self.container = parent
         self.bg_register()
-        self.lb_register_hint()
+        self.lb_register()
         self.entry_name = self.tb_name_input()
         self.entry_surname = self.tb_surname_input()
         self.entry_adress = self.tb_adress_input()
         self.entry_password = self.tb_password_input()
         self.bn_confirm_register()
 
-# Hintergrund-Frame
     def bg_register(self):
         fg_frame = ctk.CTkFrame(self.parent, fg_color="gray85", corner_radius=15)
         fg_frame.place(relx=0.3, rely=0.25, relwidth=0.4, relheight=0.5)
         ctk.CTkLabel(fg_frame, text="Registrieren", font=("Arial", 20)).pack(pady=10)
         return fg_frame
 
-# Hinweistext
-    def lb_register_hint(self):
+    def lb_register(self):
         lb_hint = ctk.CTkLabel(
             master=self.parent,
             text="Bitte geben Sie Ihre Daten ein:",
@@ -40,8 +37,7 @@ class RegisterFrame(tk.Frame):
         )
         lb_hint.place(relx=0.5, rely=0.34, anchor="center")
 
-# Eingabe Vorname
-    def tb_name_input(self):
+    def tb_name_input(self):#eingabeVorname
         tb_input_name = ctk.CTkEntry(
             master=self.parent,
             placeholder_text="Vorname",
@@ -59,8 +55,7 @@ class RegisterFrame(tk.Frame):
         tb_input_name.place(relx=0.5, rely=0.4, anchor="center")
         return tb_input_name
 
-# Eingabe Nachname
-    def tb_surname_input(self):
+    def tb_surname_input(self):#EingabeNachname
         entry_surname = ctk.CTkEntry(
             master=self.parent,
             placeholder_text="Nachname",
@@ -78,8 +73,7 @@ class RegisterFrame(tk.Frame):
         entry_surname.place(relx=0.5, rely=0.47, anchor="center")
         return entry_surname
 
-# Eingabe Adresse
-    def tb_adress_input(self):
+    def tb_adress_input(self):#EingabeAdresse
         entry_adress = ctk.CTkEntry(
             master=self.parent,
             placeholder_text="Adresse",
@@ -97,8 +91,7 @@ class RegisterFrame(tk.Frame):
         entry_adress.place(relx=0.5, rely=0.54, anchor="center")
         return entry_adress
 
-# Eingabe Passwort
-    def tb_password_input(self):
+    def tb_password_input(self):#EingabePasswort
         entry_pw = ctk.CTkEntry(
             master=self.parent,
             placeholder_text="Passwort",
@@ -116,9 +109,8 @@ class RegisterFrame(tk.Frame):
         )
         entry_pw.place(relx=0.5, rely=0.61, anchor="center")
         return entry_pw
-
-# Registrieren-Button mit Datenbankfunktion
-    def bn_confirm_register(self):
+       
+    def bn_confirm_register(self):#RegistrierenButtonmitDatenbankfunktion
         button_conf_register = ctk.CTkButton(
             master=self.parent,
             text="Registrieren",
@@ -133,14 +125,13 @@ class RegisterFrame(tk.Frame):
             border_color="#000000",
             bg_color="#D9D9D9",
             fg_color="gray25",
-            command=self.register_user  # ✅ ganz wichtig: OHNE Klammern!
+            command=self.register_user
         )
         button_conf_register.place(relx=0.5, rely=0.7, anchor="center")
         return button_conf_register
 
 
-# Registrierung in Datenbank durchführen
-    def register_user(self):
+    def register_user(self):#RegistrierunginDatenbankübergeben
         vorname = self.entry_name.get()
         nachname = self.entry_surname.get()
         adresse = self.entry_adress.get()
