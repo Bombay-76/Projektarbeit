@@ -1,12 +1,12 @@
+#mainpage.py datei 3
 import customtkinter as ctk
 import tkinter as tk
 import database
 
-obj_db = database.Datenbank()
-
 class MainFrame(tk.Frame):
-    def __init__(self, parent):
+    def __init__(self, parent, db):
         super().__init__(parent)
+        self.db = db
         self.parent = parent
         self.container = parent
         self.bg_main()
@@ -17,11 +17,22 @@ class MainFrame(tk.Frame):
         self.tb_work_time()
         self.bn_add_project()
         self.bn_log_time()
+        self.bn_project_insight()
 
     def bg_main(self):
         fg_frame = ctk.CTkFrame(self.parent, fg_color="gray85", corner_radius=15)
         fg_frame.place(relx=0.2, rely=0.2, relwidth=0.6, relheight=0.6)
         ctk.CTkLabel(fg_frame, text="Projektverwaltung", font=("Arial", 20)).pack(pady=10)
+
+    def bn_project_insight(self):#
+        btn = ctk.CTkButton(
+            master=self.parent,
+            text="Alle Projekte",
+            command=lambda: self.container.show_frame("project"),
+            font=("Arial", 14),
+            width=150
+        )
+        btn.place(relx=0.5, rely=0.8, anchor="center")
 
     def lb_hint(self):
         label = ctk.CTkLabel(
@@ -94,14 +105,17 @@ class MainFrame(tk.Frame):
         projektname = self.entry_project_name.get()
         kunden_nr = self.entry_customer_nr.get()
         if projekt_id and projektname and kunden_nr:
-            obj_db.add(projekt_id, projektname, kunden_nr)
+            self.db.add(projekt_id, projektname, kunden_nr)
             print("Projekt hinzugefügt")
+        else:
+            print("Bitte alle Felder ausfüllen")
+
 
     def arbeitszeit(self):
         try:
             projekt_id, stunden = self.entry_work_time.get().split(",")
-            obj_db.arbeitszeit(projekt_id.strip(), float(stunden.strip()))
+            self.db.arbeitszeit(projekt_id.strip(), float(stunden.strip()))
             print("Zeit erfasst")
         except:
-            print(f"Da hat etwas nicht geklappt")
+            print("Da hat etwas nicht geklappt")
 

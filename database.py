@@ -1,10 +1,10 @@
+#database.py datei 1
 import os
 import mariadb
 import sys
 import hashlib
 from dotenv import load_dotenv
 import mysql.connector
-from GUI import *
 
 class Datenbank:
     def __init__(self):
@@ -30,11 +30,9 @@ class Datenbank:
             self.cur.execute(sql, (mitarbeiter_nr, vorname, nachname, adresse, hashed_pw))
             self.conn.commit()
             print("Erfolgreich registriert!")
-        except Exception as e:
-            print(f"Fehler bei Registrierung: {e}")
+        except Exception:
+            print("Fehler bei Registrierung")
 
-
-    
     def login(self, mitarbeiter_nr, passwort):
         try:
             hashed_pw = hashlib.sha256(passwort.encode()).hexdigest()
@@ -43,17 +41,8 @@ class Datenbank:
                 (mitarbeiter_nr, hashed_pw)
             )
             return self.cur.fetchone()
-        except Exception as e:
-            print(f"Login-Fehler: {e}")
-
-    
-    def insight(self):
-        try:
-            self.cur.execute("SELECT * FROM Zeiterfassung")
-            daten = self.cur.fetchall()
-            return daten
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt!")
+        except Exception:
+            print("Login-Fehler")
 
     def add(self, projekt_id, projektname, kunden_nr):
         try:
@@ -61,8 +50,9 @@ class Datenbank:
             self.cur.execute(sql, (projekt_id, projektname, kunden_nr))
             self.conn.commit()
             print("Projekt erfolgreich hinzugefügt.")
-        except:
-            print(f"Da hat etwas nicht geklappt")
+        except Exception as e:
+            print(f"Fehler beim Hinzufügen des Projekts: {e}")
+
 
     def arbeitszeit(self, projekt_id, stunden):
         try:
@@ -71,11 +61,23 @@ class Datenbank:
             self.conn.commit()
             print("Arbeitszeit erfasst.")
         except:
-            print(f"Da hat etwas nicht geklappt!")
+            print("Da hat etwas nicht geklappt!")
 
-    def delete(self):
-        pass
-    
-    
+    def insight(self):
+        try:
+            self.cur.execute("SELECT * FROM projekt")
+            return self.cur.fetchall()
+        except:
+            print("Da hat etwas nicht geklappt")
+            return []
+
+    def filter(self, kundennr):
+        try:
+            self.cur.execute("SELECT * FROM projekt WHERE kunden_nr = %s", (kundennr,))
+            return self.cur.fetchall()
+        except Exception:
+            print(f"Fehler beim Filtern")
+            return []
+        
     def close(self):#FunktionZumSchließenDerDatenbankConnection
         self.conn.close()

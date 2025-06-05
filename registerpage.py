@@ -1,13 +1,13 @@
+#registerpage.py datei 4
 import customtkinter as ctk
 import tkinter as tk
 from customtkinter import CTkFrame
 import database
 
-obj_db = database.Datenbank()
-
 class RegisterFrame(tk.Frame):
-    def __init__(self, parent):
-        tk.Frame.__init__(self, parent)
+    def __init__(self, parent, db):
+        super().__init__(parent)
+        self.de = db
         self.parent = parent
         self.container = parent
         self.bg_register()
@@ -148,7 +148,7 @@ class RegisterFrame(tk.Frame):
 
         if vorname and nachname and adresse and passwort:
             mitarbeiter_nr = vorname[:2] + nachname[:2] + "01"
-            obj_db.register(mitarbeiter_nr, vorname, nachname, adresse, passwort)
+            self.db.register(mitarbeiter_nr, vorname, nachname, adresse, passwort)
             print("Registrierung erfolgreich")
             self.container.show_frame("login")
         else:
