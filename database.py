@@ -7,20 +7,39 @@ import mysql.connector
 
 class Datenbank:
     def __init__(self):
-        load_dotenv()#schütztdenzugangZurDatenbank
+        if getattr(sys, 'frozen', False):
+            basedir = sys._MEIPASS
+        else:
+            basedir = os.path.dirname(os.path.abspath(__file__))
+
+        dotenv_path = os.path.join(basedir, ".env")
+        load_dotenv(dotenv_path)
+
+        host = os.getenv("HOST")
+        user = os.getenv("USER")
+        password = os.getenv("PASSWORD")
+        database = os.getenv("DATABASE")
+        port_str = os.getenv("PORT")
+
+        if port_str is None:
+            raise ValueError("Die Umgebungsvariable PORT ist nicht gesetzt!")
         try:
-            #DatenbankConnection
+            port = int(port_str)
+        except ValueError:
+            raise ValueError(f"PORT ({port_str}) ist keine gültige Zahl!")
+
+        try:
             self.conn = mysql.connector.connect(
-            host=os.getenv("HOST"),
-            user=os.getenv("USER"),
-            password=os.getenv("PASSWORD"),
-            database=os.getenv("DATABASE"),
-            port=int(os.getenv("PORT"))
-        )
+                host=host,
+                user=user,
+                password=password,
+                database=database,
+                port=port
+            )
             self.cur = self.conn.cursor()
             print("Verbindung hergestellt!")
-        except mariadb.Error:
-            print("Da hat etwas nicht geklappt!")
+        except mysql.connector.Error as e:
+            print(f"Fehler beim Verbinden zur Datenbank: {e}")
 
     def register(self, mitarbeiter_nr, vorname, nachname, adresse, passwort):
         try:
