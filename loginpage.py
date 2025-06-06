@@ -1,5 +1,6 @@
 import tkinter as tk, customtkinter as ctk
 from registerpage import RegisterFrame
+import tkinter.messagebox as msgbox
 import database
 import os
 
@@ -105,11 +106,27 @@ class LoginFrame(tk.Frame):
         button_register.place(relx=0.54, rely=0.6, anchor="center")
         return button_register
     
+    #def do_login(self):
+     #   mitarbeiter_nr = self.employee_id.get()
+      #  passwort = self.employee_pw.get()
+       # result = self.db.login(mitarbeiter_nr, passwort)
+        #if result:
+         #   print("Login erfolgreich!")
+#
+ #           self.container.show_frame("main")
+
+    import tkinter.messagebox as msgbox
+
     def do_login(self):
         mitarbeiter_nr = self.employee_id.get()
         passwort = self.employee_pw.get()
-        result = self.db.login(mitarbeiter_nr, passwort)
-        if result:
-            print("Login erfolgreich!")
+
+        login_erfolgreich = self.db.login(mitarbeiter_nr, passwort)
+
+        if login_erfolgreich:
+            msgbox.showinfo("Login erfolgreich", f"Willkommen {mitarbeiter_nr}")
             self.container.show_frame("main")
+        else:
+            msgbox.showerror("Login fehlgeschlagen", "Mitarbeiternummer oder Passwort ist falsch.")
+
 

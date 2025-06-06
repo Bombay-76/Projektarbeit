@@ -64,19 +64,22 @@ class Datenbank:
 
     def insight(self):
         try:
-            self.cur.execute("SELECT * FROM projekt")
-            return self.cur.fetchall()
-        except:
-            print("Da hat etwas nicht geklappt")
+            self.cur.execute("SELECT * FROM Projekt")
+            daten = self.cur.fetchall()
+            print(f"{len(daten)} Projekte gefunden.")  # Hilfreich zum Debuggen
+            return daten
+        except Exception:
+            print("Fehler bei Projektabfrage")
             return []
 
     def filter(self, kundennr):
         try:
-            self.cur.execute("SELECT * FROM projekt WHERE kunden_nr = %s", (kundennr,))
+            self.cur.execute("SELECT * FROM Projekt WHERE kunden_nr = %s", (kundennr,))
             return self.cur.fetchall()
         except Exception:
-            print(f"Fehler beim Filtern")
+            print("Fehler bei der Abfrage")
             return []
+
         
     def close(self):#FunktionZumSchließenDerDatenbankConnection
         self.conn.close()

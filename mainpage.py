@@ -1,4 +1,5 @@
 import customtkinter as ctk
+import tkinter.messagebox as msgbox
 import tkinter as tk
 import database
 
@@ -110,15 +111,15 @@ class MainFrame(tk.Frame):
         kunden_nr = self.entry_customer_nr.get()
         if projektname and kunden_nr:
             self.db.add_1(projektname, kunden_nr)
-            print("Projekt hinzugefügt")
+            msgbox.showinfo("Erfolgt" , "Projekt hinzugefügt!")
         else:
-            print("Bitte alle Felder ausfüllen")
+            msgbox.showerror("Error","Bitte alle Felder ausfüllen")
 
     def arbeitszeit(self):
         try:
             projekt_id, stunden = self.entry_work_time.get().split(",")
             self.db.arbeitszeit(projekt_id.strip(), float(stunden.strip()))
-            print("Zeit erfasst")
+            msgbox.showinfo("erfolgt","Zeit erfasst")
         except:
-            print("Da hat etwas nicht geklappt")
+            msgbox.showerror("Error","Da hat etwas nicht geklappt!")
 

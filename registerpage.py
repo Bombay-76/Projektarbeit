@@ -1,4 +1,5 @@
 import customtkinter as ctk
+import tkinter.messagebox as msgbox
 import tkinter as tk
 from customtkinter import CTkFrame
 import database
@@ -140,8 +141,8 @@ class RegisterFrame(tk.Frame):
         if vorname and nachname and adresse and passwort:
             mitarbeiter_nr = vorname[:2] + nachname[:2] + "01"
             self.db.register(mitarbeiter_nr, vorname, nachname, adresse, passwort)
-            print("Registrierung erfolgreich")
+            msgbox.showinfo("Erfolgt","Registrierung erfolgreich")
             self.container.show_frame("login")
         else:
-            print("Bitte alle Felder ausfüllen")
+            msgbox.showerror("Error","Bitte alle Felder ausfüllen")
 
