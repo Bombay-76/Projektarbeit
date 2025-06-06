@@ -31,7 +31,6 @@ class GUI(tk.Tk):#KlasseFürGUI
         else:
             print("ungültig")
             return
-
         self.frame.pack(expand=True)
 
     def center_window(self):
@@ -43,14 +42,6 @@ class GUI(tk.Tk):#KlasseFürGUI
         y = int((screen_height - self.window_height) / 2)
 
         self.geometry(f"{self.window_width}x{self.window_height}+{x}+{y}")
-
-    #def do_login(self):
-    #    mitarbeiter_nr = self.employee_id.get()
-     #   passwort = self.employee_pw.get()
-      #  result = self.db.login(mitarbeiter_nr, passwort)
-       # if result:
-        #    print("Login erfolgreich!")
-         #   self.container.show_frame("main")
 
 if __name__ == "__main__":
     app = GUI()

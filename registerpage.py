@@ -6,7 +6,7 @@ import database
 class RegisterFrame(tk.Frame):
     def __init__(self, parent, db):
         super().__init__(parent)
-        self.de = db
+        self.db = db
         self.parent = parent
         self.container = parent
         self.bg_register()

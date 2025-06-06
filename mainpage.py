@@ -23,7 +23,7 @@ class MainFrame(tk.Frame):
         fg_frame.place(relx=0.2, rely=0.2, relwidth=0.6, relheight=0.6)
         ctk.CTkLabel(fg_frame, text="Projektverwaltung", font=("Arial", 20)).pack(pady=10)
 
-    def bn_project_insight(self):#
+    def bn_project_insight(self):
         btn = ctk.CTkButton(
             master=self.parent,
             text="Alle Projekte",
@@ -106,15 +106,13 @@ class MainFrame(tk.Frame):
         btn.place(relx=0.6, rely=0.67, anchor="center")
 
     def add(self):
-        projekt_id = self.entry_project_id.get()
         projektname = self.entry_project_name.get()
         kunden_nr = self.entry_customer_nr.get()
-        if projekt_id and projektname and kunden_nr:
-            self.db.add(projekt_id, projektname, kunden_nr)
+        if projektname and kunden_nr:
+            self.db.add_1(projektname, kunden_nr)
             print("Projekt hinzugefügt")
         else:
             print("Bitte alle Felder ausfüllen")
-
 
     def arbeitszeit(self):
         try:

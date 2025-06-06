@@ -43,15 +43,15 @@ class Datenbank:
         except Exception:
             print("Login-Fehler")
 
-    def add(self, projekt_id, projektname, kunden_nr):
+    def add_1(self, projektname, kunden_nr):
+
         try:
-            sql = "INSERT INTO Projekt (projekt_id, projektname, kunden_nr) VALUES (%s, %s, %s)"
-            self.cur.execute(sql, (projekt_id, projektname, kunden_nr))
+            sql = "INSERT INTO Projekt (projektname, kunden_nr) VALUES (%s, %s)"
+            self.cur.execute(sql, (projektname, kunden_nr))
             self.conn.commit()
             print("Projekt erfolgreich hinzugefügt.")
         except Exception:
             print(f"Fehler beim Hinzufügen des Projekts")
-
 
     def arbeitszeit(self, projekt_id, stunden):
         try:
