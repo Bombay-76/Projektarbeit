@@ -15,5 +15,11 @@ Das Projekt wird betreut von: Lennie Engelmann und Leonard Brauneis
 
 
 C-Sharp
-Ich versuche irgendwas zu tun
 
+Lenie:
+        Ich versuche irgendwas zu tun
+
+
+
+Leonard:
+        Es lief naja... katastrophe. Hab über die Ferien alles verlernt. Habe mich bei der DB Anbindung auch extrem schwehr getan. Sowie dem connector. Auch die Anbindung an gitHub ist nicht gelungen.
