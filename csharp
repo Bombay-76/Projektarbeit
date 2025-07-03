@@ -1,1 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+namespace Datenbankübung_03072025 /*Datenbankanbindung_03_07_2025*/
+{
+    public partial class Form1: Form//Variabeln Deklarieren
+    {
+        string localhost = "10.80.0.206";
+        string unser_name = "team08";
+        string port = "3306";
+        string passwort = "8US9V";
+        string DATABASE = "team08";
+        string mitarbeiter_nr = "LeEn01";
+        string projekt_id = "1";
+        double hours = 0.0;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+        private void bn_do_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double hours = Convert.ToDouble(tb_hours.Text);//Value an Variabel übergeben
+
+                //Verbindung zur Datenbank herstellen
+                string connectionString = $"server={localhost};user={unser_name};port={port};password={passwort};database={DATABASE}";
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    //sqlBefehl vorbereiten
+                    string sql = "INSERT INTO zeiterfassung (stunden) VALUES (@stunden)";
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@stunden", hours);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Stunden erfolgreich eingetragen.");
+                }
+            }
+            catch (FormatException)
+            {
+            
+            }
+        }
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
 
