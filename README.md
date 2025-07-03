@@ -12,5 +12,8 @@ Das Projekt wird betreut von: Lennie Engelmann und Leonard Brauneis
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-C-Sharp
-Ich versuche irgendwas zu tun mit Datenbankanbindung
+C-Sharp 03.07.2025
+Die Anwendung ist dafür da um Die Stundenanzahl, die man in ein Projekt investiert hat zu dokuentieren.
+Das Programm ließ sich durch das einfache Design von VSCode 2022 sehr viel schneller umsetzten und schreiben, da csharp auch auf stackoverflow gut vertreten ist wurde mich ebenfalls gut geholfen. Außerdem ließ sich durch die sehr viel einfache übergabe der Vaules ebenfalls sehr viel Zeit spaaren. Es haben sich schwierigkeiten beim anbinden der Datenbank gezeigt.
+
+
